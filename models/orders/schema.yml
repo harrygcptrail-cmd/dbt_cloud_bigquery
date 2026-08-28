@@ -1,0 +1,17 @@
+version: 2
+
+sources : 
+  - name : bigquery_source
+    schema : staging_raw
+    tables :
+        - name : orders 
+
+models:
+    - name: transformed_orders
+      description: "orders tranformed table "
+      columns:
+          - name: order_id 
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null
